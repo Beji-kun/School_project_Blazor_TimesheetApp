@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TimeSheetApp.Shared.Models
 {
@@ -20,6 +21,7 @@ namespace TimeSheetApp.Shared.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Gender { get; set; }
+        [Column(TypeName = "date")]
         public DateTime DateOfBirth { get; set; }
         public DateTime LastActive { get; set; }
         public byte[] PasswordHash { get; set; }

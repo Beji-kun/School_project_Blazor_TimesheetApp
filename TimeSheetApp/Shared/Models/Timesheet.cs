@@ -19,6 +19,7 @@ namespace TimeSheetApp.Shared.Models
         public string Notes { get; set; }
         public DateTime StartWork { get; set; }
         public DateTime EndWork { get; set; }
+        public decimal TotalHours { get; set; }
         public virtual ICollection<User> Users { get; set; }
         public virtual ICollection<Project> Projects { get; set; }
     }

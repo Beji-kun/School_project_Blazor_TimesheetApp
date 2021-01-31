@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TimeSheetApp.Server.DAL;
 
 namespace TimeSheetApp.Server.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20210131193209_testDbserver")]
+    partial class testDbserver
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,9 +128,6 @@ namespace TimeSheetApp.Server.Migrations
                     b.Property<DateTime>("StartWork")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("TotalHours")
-                        .HasColumnType("decimal(18,2)");
-
                     b.HasKey("ID");
 
                     b.ToTable("Timesheets");
@@ -142,7 +141,7 @@ namespace TimeSheetApp.Server.Migrations
                         .UseIdentityColumn();
 
                     b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
