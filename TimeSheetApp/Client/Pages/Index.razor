@@ -1,7 +1,18 @@
 ﻿@page "/"
+@using TimeSheetApp.Shared.Models
+
 
 <h1>Hello, world!</h1>
 
-Welcome to your new app.
+Welcome to your new app. TEst Test
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<SfGrid TValue="User" Toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Update", "Cancel" })">
+    <SfDataManager Url="/api/User" Adaptor="Adaptors.WebApiAdaptor"></SfDataManager>
+    <GridEditSettings AllowAdding="true" AllowEditing="true" AllowDeleting="true"></GridEditSettings>
+    <GridColumns>
+        <GridColumn Field="@nameof(User.ID)" IsPrimaryKey="true" Visible="false"></GridColumn>
+        <GridColumn Field="@nameof(User.FirstName)" Width="150"></GridColumn>
+        <GridColumn Field="@nameof(User.LastName)" Width="150"></GridColumn>
+        <GridColumn Field="@nameof(User.Email)" Width="90"></GridColumn>
+    </GridColumns>
+</SfGrid>
